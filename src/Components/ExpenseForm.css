@@ -4,9 +4,7 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   padding: 20px;
   margin-bottom: 20px;
-  width: 100%;
-  
-
+  width: 350px;
 }
 
 .expense-form h2 {
@@ -15,16 +13,25 @@
 }
 
 .expense-form label {
-  display: block;
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  /* margin-bottom: 10px; */
+}
+
+.expense-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .expense-form input[type="text"],
 .expense-form input[type="number"],
 .expense-form input[type="date"] {
-  width: 100%;
+  /* width: 100%; */
+  flex: 1;
   padding: 10px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   border: 1px solid #ccc;
   border-radius: 5px;
 }
@@ -32,7 +39,7 @@
 .expense-form select {
   width: 100%;
   padding: 10px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   border: 1px solid #ccc;
   border-radius: 5px;
 }
