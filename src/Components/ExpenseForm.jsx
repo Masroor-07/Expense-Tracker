@@ -2,26 +2,46 @@ import React, { useState } from 'react';
 import Dropdown from './Dropdown'; 
 import './ExpenseForm.css';
 
-function ExpenseForm({ transactions, setTransactions }) {
-    const [type, setType] = useState('expense');
-    const [name, setName] = useState('');
-    const [amount, setAmount] = useState('');
-    const [date, setDate] = useState('');
-    const [source, setSource] = useState(type==='income'? 'Salary' : 'Shopping');
+function ExpenseForm({ onAddTransaction }) {
+    const [formData, setFormData] = useState({
+        type: 'expense',
+        name: '',
+        amount: '',
+        date: '',
+        source: 'Shopping',
+    });
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    };
 
     const handleAddTransaction = () => {
-        if (name && amount && date && source) {
-            const newTransaction = { type, name, amount, date, source };
-            setTransactions([...transactions, newTransaction]);
-            setName('');
-            setAmount('');
-            setDate('');
-            setSource('');
+        const { name, amount, date, source } = formData;
 
-            localStorage.setItem('transactions',Json.stringify([...transactions,newTransaction]));
+        if (name && amount && date && source) {
+            const newTransaction = { ...formData, amount: parseFloat(formData.amount) };
+            onAddTransaction(newTransaction);
+            setFormData({
+                type: 'expense',
+                name: '',
+                amount: '',
+                date: '',
+                source: '',
+            });
         }
     };
+
     
+    const expenseCategoryOptions = ['Shopping', 'Fuel', 'Travel', 'Food','Salary'];
+    const incomeCategoryOptions = ['Salary', 'Trading', 'Youtube', 'Other'];
+
+    
+    const categoryOptions =
+        formData.type === 'expense' ? expenseCategoryOptions : incomeCategoryOptions;
 
     return (
         <div className="expense-form">
@@ -29,34 +49,32 @@ function ExpenseForm({ transactions, setTransactions }) {
             <form>
                 <label>
                     Transaction Type:
-                    <select value={type} onChange={(e) => setType(e.target.value)}>
+                    <select value={formData.type} onChange={handleInputChange} name="type">
                         <option value="expense">Expense</option>
                         <option value="income">Income</option>
                     </select>
                 </label>
                 <label>
                     Name:
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                    <input type="text" value={formData.name} onChange={handleInputChange} name="name" />
                 </label>
                 <label>
                     Amount:
-                    <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />
+                    <input type="number" value={formData.amount} onChange={handleInputChange} name="amount" />
                 </label>
                 <label>
                     Date:
-                    <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+                    <input type="date" value={formData.date} onChange={handleInputChange} name="date" />
                 </label>
-                {type === 'income' ? (
-                    <label>
-                        Income Source:
-                        <Dropdown options={['Salary', 'Trading', 'Utube', 'Other']} selectedValue={source} onChange={(e) => setSource(e.target.value)} />
-                    </label>
-                ) : (
-                    <label>
-                        Expense Type:
-                        <Dropdown options={['Shopping', 'Rent', 'Travel', 'Food', 'Other']} selectedValue={source} onChange={(e) => setSource(e.target.value)} />
-                    </label>
-                )}
+                <label>
+                    Category:
+                    <Dropdown
+                        options={categoryOptions}
+                        selectedValue={formData.source}
+                        onChange={handleInputChange}
+                        name="source"
+                    />
+                </label>
                 <button type="button" onClick={handleAddTransaction}>
                     Add Transaction
                 </button>

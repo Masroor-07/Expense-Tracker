@@ -1,49 +1,51 @@
 .expense-form {
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    margin-bottom: 20px;
-    width: 80%;
-  }
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
   
-  .expense-form h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .expense-form label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .expense-form input[type="text"],
-  .expense-form input[type="number"],
-  .expense-form input[type="date"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .expense-form select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .expense-form button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .expense-form button:hover {
-    background-color: #0056b3;
-  }
+
+}
+
+.expense-form h2 {
+  font-size: 20px;
+  margin-bottom: 50px;
+}
+
+.expense-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.expense-form input[type="text"],
+.expense-form input[type="number"],
+.expense-form input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.expense-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.expense-form button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.expense-form button:hover {
+  background-color: #0056b3;
+}

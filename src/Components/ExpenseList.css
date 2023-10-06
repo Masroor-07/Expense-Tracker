@@ -1,27 +1,110 @@
+
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.table-container {
+  flex: 1;
+  margin-left: 20px; 
+  margin-top: 20px;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+
 .expense-list {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    float: right;
-    margin-left: 20px;
-    width: 80%;
-  }
-  
-  .expense-list h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .expense-list ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .expense-list li {
-    margin-bottom: 10px;
-  }
-  
-  .expense-list p {
-    font-weight: bold;
-  }
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+}
+
+.expense-list h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.expense-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.expense-list ul li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* Style for the table */
+.table-container table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-container th, .table-container td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.table-container th {
+  background-color: #f2f2f2;
+}
+
+.table-container th:first-child, .table-container td:first-child {
+  width: 40%; 
+}
+
+
+
+
+.expense-list {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  float: right;
+  margin-left: 20px;
+  width: 80%;
+}
+
+.expense-list h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.expense-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.expense-list li {
+  margin-bottom: 10px;
+}
+
+.expense-list p {
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
